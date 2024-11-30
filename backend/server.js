@@ -4,9 +4,10 @@ import { connectDB } from "./config/db.js";
 dotenv.config()
 
 const app = express();
-
-app.get('/products',(req,res)=>{
-    res.send('nodemon is here')
+app.use(express.json())
+app.get('/api/products',(req,res)=>{
+    const product = req.body;
+    res.send(product);
 })
 console.log(process.env.MONGO_URI);
 
